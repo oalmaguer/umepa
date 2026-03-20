@@ -5,7 +5,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { supabase } from '../lib/supabase';
 
 const Navbar = () => (
   <motion.nav 
@@ -16,7 +15,7 @@ const Navbar = () => (
   >
     <div className="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
       <a className="flex items-center" href="#">
-       <img src="/images/logo2.png" width={100} height={100} className="" alt="" />
+       <img src="./images/logo2.png" width={100} height={100} className="" alt="" />
        <h2 className="text-2xl font-bold hover:cursor-pointer text-sky-700">UMEPA</h2>
       </a>
       <div className="hidden md:flex items-center gap-8 font-sans  text-md font-medium tracking-tight">
@@ -70,7 +69,7 @@ const Hero = () => (
             transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
             alt="Equipo médico profesional"
             className="object-cover drop-shadow-2xl border-8 border-white/50 scale-110"
-            src="/images/umepa3d.png"
+            src="./images/umepa3d.png"
           />
       
       </motion.div>
@@ -90,7 +89,7 @@ const Mission = () => (
             <motion.img 
              animate={{ y: [0, -20, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-              src="/images/outside.png" 
+              src="./images/outside.png" 
               alt="Misión UMEPA" 
               className="relative z-10 shadow-xl border-4 border-white"
               style={{ maxHeight: '500px', borderRadius: '1rem' }}
@@ -193,7 +192,7 @@ const About = () => (
           <img
             alt="Interior de la clínica"
             className="w-full h-full object-cover"
-            src="/images/clinic.png"
+            src="./images/clinic.png"
           />
         </div>
         <div className="absolute top-12 -right-12 w-48 h-48 bg-tertiary rounded-lg rotate-12 z-[-1] opacity-20"></div>
@@ -247,8 +246,8 @@ const Doctors = () => (
       </motion.div>
       <div className="grid md:grid-cols-3 gap-8">
         {[
-          { name: 'Dr. Ernesto Almaguer', role: 'Pediatra', university: 'Universidad Autonoma de Nuevo Leon', img: '/images/doc.png' },
-          { name: 'Lic. Carlos Almaguer', role: 'Fisioterapeuta', university: 'Universidad Autonoma de Guadalajara', img: '/images/pt.png' },
+          { name: 'Dr. Ernesto Almaguer', role: 'Pediatra', university: 'Universidad Autonoma de Nuevo Leon', img: './images/doc.png' },
+          { name: 'Lic. Carlos Almaguer', role: 'Fisioterapeuta', university: 'Universidad Autonoma de Guadalajara', img: './images/pt.png' },
           { name: 'Dr. Victor Hugo Cortez Padilla', role: 'Unidad de Asma y Alergia', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB4ZZtdg6LfNf6D0X1b8PquWx7uZvSSiIeChpdwX8Iqk5ym5eLj8Ssd9TRVpBTjgo8jxQwjb7D45BJ-AQhW3LI1KYW5jnRoKfCeOF-GiYMCCg6e1rsGa00BtJETbVQs6PHr_mcHf8LCrGoGl0Wb2AnIu_gCerHCExIfaWvy2ow1b_MZ3yFfCE7xQxA1JN8gMoglIV_thqkSbwey6Ae37ZFWsyhV0UeO2CDKhi8LI-sheq_As7cwQwmwnHwWaPirRFrudVKC1Fuuh0Ye' },
           { name: 'Dra. Edna J. Castillo Lopez', role: 'Odontologia Integral', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDuXPPDjer0IRPo_LxYgKffVdb3-NgfyXPCzHj06b2WZzzH6_ZXkEMAqkbObRGP6k6JSjqbzr8vFJlJD-COAA1Te1q3yzn3NX-JwplTCxhQ6-phM_iMmjOSvTrAAzWZMj3yblg302XzLUFAKnBcHQ7FbwhbN3TTg3W9ViqC2i68U1U20gh-O1ACjByp8o4zFQZn8pEAGbvFUP7RjulRaWiSyn-Q8qeADhAs0PhqKUJqNJbFDDx-oUOLzSC7xH4La-w5HagPJEo0N401' },
           { name: 'Dra. Pamel G. Haro Sanchez', role: 'Odontologia Integral', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBYuOZQZ9_pxQgHhyvPWdn07fiRhLTKLZEdPUjw7BJZMv85ROLhMzUlaKms4hXkmk_dQPfgCcW8iXvv0t3DLDX45U1jU3iK2v8eUhKOPCEHwr431aoyDZvoNj9cUb_u1Uwvu4O4fu05mLHkiSZc5O1RORUH0mtzDXUpSPzdluC-kWPBmoPFa6jmBDMCS8fu30HQeS1FOvS_A5exuX5HskFfiamyLHNTDDTWB8-zbudfBnyMn2nLSUmdeJItVP8BKUjYb1z3-ubPhjbL' },
@@ -296,27 +295,27 @@ const Appointment = () => {
     e.preventDefault();
     setStatus('submitting');
     
-    try {
-      const { error } = await supabase
-        .from('bookings')
-        .insert([
-          {
-            name: formData.name,
-            phone: formData.phone,
-            specialty: formData.specialty,
-            date: formData.date,
-            time: formData.time
-          }
-        ]);
+    // try {
+    //   const { error } = await supabase
+    //     .from('bookings')
+    //     .insert([
+    //       {
+    //         name: formData.name,
+    //         phone: formData.phone,
+    //         specialty: formData.specialty,
+    //         date: formData.date,
+    //         time: formData.time
+    //       }
+    //     ]);
 
-      if (error) throw error;
+    //   if (error) throw error;
       
-      setStatus('success');
-      setFormData({ name: '', phone: '', specialty: '', date: '', time: '' });
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setStatus('error');
-    }
+    //   setStatus('success');
+    //   setFormData({ name: '', phone: '', specialty: '', date: '', time: '' });
+    // } catch (error) {
+    //   console.error('Error submitting form:', error);
+    //   setStatus('error');
+    // }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -553,7 +552,7 @@ const Footer = () => (
           <img
             alt="UMEPA Logo"
             className="h-16 w-auto"
-            src="/images/logo2.png"
+            src="./images/logo2.png"
           />
         </div>
         <p className="font-sans text-sm text-slate-300 leading-relaxed">Brindando atención médica de alta gama diseñada para evocar una sensación de calma, competencia y amplitud.</p>
@@ -600,18 +599,18 @@ const AdminDashboard = () => {
   const [editForm, setEditForm] = useState<any>({});
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setAuthLoading(false);
-    });
+    // supabase.auth.getSession().then(({ data: { session } }) => {
+    //   setSession(session);
+    //   setAuthLoading(false);
+    // });
 
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session);
-    });
+    // const {
+    //   data: { subscription },
+    // } = supabase.auth.onAuthStateChange((_event, session) => {
+    //   setSession(session);
+    // });
 
-    return () => subscription.unsubscribe();
+    // return () => subscription.unsubscribe();
   }, []);
 
   useEffect(() => {
@@ -623,28 +622,28 @@ const AdminDashboard = () => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setAuthLoading(true);
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-    if (error) alert(error.message);
+    // const { error } = await supabase.auth.signInWithPassword({
+    //   email,
+    //   password,
+    // });
+    // if (error) alert(error.message);
     setAuthLoading(false);
   };
 
   const handleLogout = async () => {
-    await supabase.auth.signOut();
+    // await supabase.auth.signOut();
   };
 
   const fetchBookings = async () => {
-    setLoading(true);
-    const { data, error } = await supabase
-      .from('bookings')
-      .select('*')
-      .order('created_at', { ascending: false });
+    // setLoading(true);
+    // const { data, error } = await supabase
+    //   .from('bookings')
+    //   .select('*')
+    //   .order('created_at', { ascending: false });
       
-    if (error) console.error('Error fetching bookings:', error);
-    else setBookings(data || []);
-    setLoading(false);
+    // if (error) console.error('Error fetching bookings:', error);
+    // else setBookings(data || []);
+    // setLoading(false);
   };
 
   const startEdit = (b: any) => {
@@ -657,29 +656,29 @@ const AdminDashboard = () => {
   };
 
   const saveEdit = async () => {
-    if (!editingId) return;
-    try {
-      const matchId = editForm.id; 
-      if (!matchId) return alert("Error resguardando: falta ID de reserva.");
+    // if (!editingId) return;
+    // try {
+    //   const matchId = editForm.id; 
+    //   if (!matchId) return alert("Error resguardando: falta ID de reserva.");
 
-      const { error } = await supabase
-        .from('bookings')
-        .update({
-          name: editForm.name,
-          phone: editForm.phone,
-          specialty: editForm.specialty,
-          date: editForm.date,
-          time: editForm.time
-        })
-        .eq('id', matchId);
+    //   const { error } = await supabase
+    //     .from('bookings')
+    //     .update({
+    //       name: editForm.name,
+    //       phone: editForm.phone,
+    //       specialty: editForm.specialty,
+    //       date: editForm.date,
+    //       time: editForm.time
+    //     })
+    //     .eq('id', matchId);
 
-      if (error) throw error;
+    //   if (error) throw error;
       
-      setEditingId(null);
-      fetchBookings();
-    } catch (err: any) {
-      alert("Error saving: " + err.message);
-    }
+    //   setEditingId(null);
+    //   fetchBookings();
+    // } catch (err: any) {
+    //   alert("Error saving: " + err.message);
+    // }
   };
 
   if (authLoading) {
