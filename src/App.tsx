@@ -13,7 +13,7 @@ const Navbar = () => (
     transition={{ duration: 0.5 }}
     className="fixed top-0 w-full z-50 bg-white shadow-sm"
   >
-    <div className="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+    <div className="flex flex-col md:flex-row  justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
       <a className="flex items-center" href="#">
        <img src="./images/logo2.png" width={100} height={100} className="" alt="" />
        <h2 className="text-2xl font-bold hover:cursor-pointer text-sky-700">UMEPA</h2>
@@ -33,7 +33,7 @@ const Navbar = () => (
 );
 
 const Hero = () => (
-  <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-surface">
+  <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-surface mt-10 md:mt-0">
     <div className="absolute inset-0 z-0">
       <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-primary-container/20 rounded-full blur-3xl"></div>
       <div className="absolute bottom-[-5%] left-[-5%] w-[400px] h-[400px] bg-tertiary-fixed/30 rounded-full blur-3xl"></div>
@@ -46,7 +46,7 @@ const Hero = () => (
         className="space-y-8"
       >
         <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-widest uppercase">Atención Médica Premium ⭐⭐⭐⭐⭐</span>
-        <h1 className="text-6xl md:text-7xl font-bold tracking-tighter leading-[1.1] text-on-surface">
+        <h1 className="text-4xl md:text-7xl font-bold tracking-tighter leading-[1.1] text-on-surface">
           Tu Salud,<br /><span className="text-primary">Nuestra Prioridad y Compromiso</span>
         </h1>
         <p className="text-lg text-on-surface-variant max-w-lg leading-relaxed">
@@ -168,9 +168,7 @@ const Services = () => (
             </div>
             <h4 className="text-[1.25rem] font-bold text-[#0c2f54] tracking-tight">{service.title}</h4>
             <p className="text-slate-500 text-sm leading-[1.6] mb-2">{service.desc}</p>
-            <a className="text-[#1a5189] font-bold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all mt-auto" href="#">
-              Saber Más <span className="material-symbols-outlined text-lg">chevron_right</span>
-            </a>
+           
           </motion.div>
         ))}
       </div>
@@ -339,7 +337,7 @@ const Appointment = () => {
           
           <div className="flex flex-col items-center justify-center gap-4 mb-4">
             <div className="flex items-center gap-6 bg-surface-container-lowest px-10 py-6 rounded-2xl shadow-lg border border-outline-variant/10">
-              <span className="text-4xl md:text-5xl font-extrabold text-primary tracking-widest">9810599</span>
+              <span className="text-2xl md:text-5xl font-extrabold text-primary tracking-widest">9810599</span>
               <button 
                 onClick={(e) => {
                   e.preventDefault();
